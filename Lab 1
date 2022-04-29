@@ -1,0 +1,120 @@
+/*
+Created By: Benjamin Edwards
+Date: 9/9/21
+Description: 3 parts
+	     Part 1: Prompt the user to enter three integers and preform the calculation: int1 * int2 - int3
+		     and output results
+	     Part 2: Print several messages in different ways
+	     Part 3: Take in a n digit number and separate the digits with 3 spaces
+*/
+
+#include <stdio.h>
+
+void print_equation(void);
+void print_lines(void);
+void print_digits(void);
+
+int main(void)
+{
+       
+	print_equation();
+      
+	printf("-------------------------------------\n");		/*used to separate the different parts and outputs*/ 
+	print_lines();
+
+	printf("-------------------------------------\n");
+	print_digits();	
+	
+	printf("\n-------------------------------------\n");
+	printf("End of Program\n");
+
+
+
+
+}
+
+void print_equation(void)
+{
+
+	int num1;
+	int num2;
+	int num3;
+	
+	printf("Enter in the first integer:\n");
+	scanf("%d", &num1);
+
+	printf("Enter in the second integer:\n");
+	scanf("%d", &num2);
+	
+	printf("Enter in the third integer:\n");
+	scanf("%d", &num3);
+
+	int result = (num1 * num2) - num3;
+
+	printf("%d times %d minus %d is %d\n", num1, num2, num3, result);	
+
+
+}
+
+void print_lines(void)
+{
+
+	printf("This is a C program\n");
+
+	printf("--------------------------------------\n");
+
+	printf("This is \na C program\n");
+
+	printf("--------------------------------------\n");
+
+	printf("This\nis\na\nC\nprogram\n");
+
+	printf("--------------------------------------\n");
+
+	printf("This\tis\ta\tC\tprogram\n");
+
+	printf("--------------------------------------\n");
+
+	printf("*****\n****\n***\n**\n*\n");
+
+	printf("--------------------------------------\n");
+
+
+}
+
+void print_digits(void)
+{
+	
+	long big_Num = 1;
+	int count = 1;
+
+	printf("Enter a number with 5 or greater digits:\n");
+
+	scanf("%d", &big_Num);
+	
+	long until_0 = big_Num;	
+			
+
+
+	while(until_0 > 10)
+	{
+		until_0 = until_0 / 10; 
+		count = (count * 10);
+			
+	
+	}
+
+	int temp;
+		
+	while(count > 0)
+	{
+		temp = big_Num / count;
+		printf("%d   ", temp);
+		big_Num = big_Num - (temp * count);
+		count = count /10;
+	}
+
+
+
+
+}
