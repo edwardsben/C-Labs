@@ -1,0 +1,160 @@
+/*
+Created by Benjamin Edwards
+Date: 11/18/21
+Description: This lab uses arrays and pointers to manipulate strings in C.
+*/
+
+#include <stdio.h>
+
+void getString(char arr[], int);
+void getChar(char arr[], int);
+int my_strlen(char arr[]);
+int my_strcpy(char arr[], char arr2[]);
+char* my_strcat(char arr[], char arr2[]);
+void my_strreverse (char arr[]);
+int main(void)
+{
+	/*GETTING USER STRING*/
+	int n = 999;
+        char userString [999];
+	char userString2 [999];
+
+	printf("Write a string thats under 998 characters. When you want to finish press z\n");
+		
+	/*TESTING EACH FUNCTION WITH USER STRING*/	
+	
+		/*CASE 1*/
+		getString(userString, n);
+
+		printf("The length of the string is: %d\n", my_strlen(userString));
+	
+		/*CASE 2*/
+		
+		printf("Write another string to overwrite the First one (The length of string 1 must be greater than string 2 to overwrite)\n");
+		getString(userString2, n);
+		my_strcpy(userString, userString2);
+		
+		/*CASE 3*/ 
+		printf("This part combines string 1 and 2. Here is the result:\n");
+		printf(" %s\n", my_strcat(userString, userString2));
+		
+		/*CASE 4*/
+		printf("Here is the reversed string:\n");
+		my_strreverse(userString);
+	
+	
+}
+void getString(char x[], int y)
+{
+	int i = 0;
+
+        while((i <= y-1) && ((x[i] = getchar()) != 'z'))
+        {
+                i++;
+        }
+
+        /* if the string is too big then it replaces the last char with \0*
+        if(i == y)
+        {
+                x[i-1] = '\0';
+                printf("-1");
+        }
+        else /* replaces 'z' with \0 */
+        {
+              x[i] = '\0';
+              /*debug: printf("0"); */
+        }
+
+}
+void getChar(char c[], int d)
+{
+	int x = 0;
+	while((x <= d) && (putchar(c[x]) != '\0'))
+        {
+        	x++;
+
+        }
+
+
+
+}
+int my_strlen(char s[]) /*FINDS THE LENGTH/NUMBER OF CHARACTERS IN THE STRING*/
+{
+	int length = 0;
+	int i = 0;
+	while(s[i] != '\0')
+	{
+		length++;
+		i++;	
+		
+	}
+	
+	return length;
+}
+
+int my_strcpy(char s[], char t[])
+{
+	int lengthS = my_strlen(s);
+	int lengthT = my_strlen(t);
+
+	if(lengthS >= lengthT)
+	{
+		for(int i = 0; i < lengthS; i++){
+		
+			s[i] = t[i];
+			if(i >= lengthT && s[i] != '\0')
+			{
+				s[i] = '\0';
+			}
+		}
+		printf("Copy SUCCESS!\n");
+	}
+	else
+	{
+		printf("Copy FAILED, String 2 is too big to overwrite\n");
+	}
+
+
+}
+char* my_strcat(char s[], char t[])
+{
+	char* sPtr = s;
+	char* tPtr = t;
+
+
+	/* Incrementing counter so I can start concatenating array t to array s at the end of array s*/
+	while(*sPtr != '\0')
+	{
+		sPtr++; 
+	}
+	
+	int i;
+	while(*tPtr != '\0')
+	{
+		*sPtr = *tPtr;
+		sPtr++;
+		tPtr++; 
+	}
+	*sPtr = '\0'; 
+	return s;
+
+}
+void my_strreverse (char s [])
+{
+	char* sPTR = s;
+	int counter;
+	while(*sPTR != '\0')
+	{
+		counter++;
+		sPTR++;
+	}
+	
+
+	/* debug print*/
+	while(*sPTR != '\0')
+	{
+	
+		printf("%c\n", *sPTR);
+		sPTR++;
+	}
+}
