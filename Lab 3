@@ -1,0 +1,232 @@
+/*
+Created by Benjamin Edwards
+Date: 10/07/21
+Description: program that answers several questions from a word doc
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+	
+	/* Setting variables*/
+        int i1;
+        int i2 = 50;
+        int *intptr1 = &i1;
+        int *intptr2 = &i2;
+		
+        double d1;
+        double d2 = 80.0;
+        double *dubptr1 = &d1;
+        double *dubptr2 = &d2;
+		
+		/* checking the addresses of variables (i1, i2, d1 d2) beforehand*/
+		printf("Address for i1: %p\n", intptr1);
+        printf("Address for 12: %p\n", intptr2);
+        printf("Address for d1: %p\n", dubptr1);
+        printf("Address for d2: %p\n", dubptr2);
+		printf("\n");
+		
+		/* (1) */  /* Find the addresses of the variables */
+		
+        printf("Question 1 Output:\n");
+		printf("Address for i1: %p\n", &i1);  
+		printf("Address for i2: %p\n", &i2);
+		printf("Address for d1: %p\n", &d1);
+		printf("Address for d2: %p\n", &d2);
+		
+		printf("\n");
+
+        /* (2) */ /* Find the addresses of the pointers */
+        
+		printf("Question 2 Output:\n");
+		printf("Address for intptr1: %p\n", &intptr1); 
+		printf("Address for intptr2: %p\n", &intptr2);
+		printf("Address for dubptr1: %p\n", &dubptr1);
+		printf("Address for dubptr2: %p\n", &dubptr2);
+		
+		printf("\n");
+		
+		/* (3) */ /* Find the contents of the pointers aka. the address of the variables*/
+
+		printf("Question 3 Output:\n");
+		printf("Contents of intptr1: %p\n", intptr1);
+		printf("Contents of intptr2: %p\n", intptr2);
+		printf("Contents of dubptr1: %p\n", dubptr1);
+		printf("Contents of dubptr2: %p\n", dubptr2);
+		
+		printf("\n");
+		
+		/* (4) */ /* Write code to assign â€˜intptr2â€™ to â€˜intptr1â€™. Then write code to print the contents*/
+		
+		intptr1 = intptr2;
+		printf("Question 4 Output:\n");
+		printf("Contents of intptr1: %p\n", intptr1);
+		printf("Contents of intptr2: %p\n", intptr2);
+		
+		printf("\n");
+		
+		/* (5) */ /* Write code to use typecasting to cast the type of pointer variable*/
+		
+		dubptr1 = (double *)intptr1;
+		printf("Question 5 Output:\n");
+		printf("Contents of intptr1: %p\n", intptr1);
+		printf("Contents of dubptr1: %p\n", dubptr1);
+		
+		printf("\n");
+		
+		/* (6) */ /* Write code to assign the value NULL to a pointer variable*/
+		
+		intptr1 = NULL;
+		printf("Question 6 Output:\n");
+		printf("contents of intptr1: %p\n", intptr1);
+		
+		printf("\n");
+		
+		/* (7) */ /* Write code to dereference intptr2*/
+		
+		printf("Question 7 Output:\n");
+		printf("The value of intptr2: %d\n", *intptr2);
+		
+		printf("\n");
+		
+		/* (8) */ /* Write code to assign the value 100 to the dereferencing of pointer â€˜intptr2â€™*/
+		
+		*intptr2 = 100;
+		printf("Question 8 Output:\n");
+		printf("The value of intptr2: %d\n", *intptr2);
+		
+		printf("\n");
+		
+		/* (9) */ /* Write code to increment intptr2 and print its contents and dereference it*/
+		
+		intptr2++;
+		printf("Question 9 Output:\n");
+		printf("Contents of intptr2: %p\n", intptr2);
+		printf("The value of intptr2: %d\n", *intptr2);
+		
+		printf("\n");
+		
+		/* (10) */ /* Write code to decrement intptr2 and print its contents and dereference it*/
+		
+		intptr2--;
+		printf("Question 10 Output:\n");
+		printf("Contents of intptr2: %p\n", intptr2);
+		printf("The value of intptr2: %d\n", *intptr2);
+		
+		printf("\n");
+		
+		/* (11) */ /* Write code to dereference dubptr2*/
+		
+		printf("Question 11 Output:\n");
+		printf("The value of dubptr2: %f\n", *dubptr2);
+		
+		printf("\n");
+		
+		/* (12) */ /* Write code to increment dubptr2 and print its contents and dereference it*/
+		
+		dubptr2++;
+		printf("Question 12 Output:\n");
+		printf("Contents of dubptr2: %p\n", dubptr2);
+		printf("The value of intptr2: %f\n", *dubptr2);
+		
+		printf("\n");
+		
+		/* (13) */ /* Write code to decrement dubptr2 and print its contents and dereference it*/
+		
+		dubptr2--;
+		printf("Question 13 Output:\n");
+		printf("Contents of dubptr2: %p\n", dubptr2);
+		printf("The value of dubptr2: %f\n", *dubptr2);
+		
+		printf("\n");
+		
+		/* (14) */
+		
+		printf("Question 14 Output:\n");
+		
+		intptr1 = &i1;
+		
+		if(intptr1 == intptr2)
+		{
+			printf("Does intptr1 == intptr2?: YES!\n");
+		}
+		else 
+		{
+			printf("Does intptr1 == intptr2?: NO!\n");
+		}
+		
+		if(*intptr1 == *intptr2)
+		{
+			printf("Does *intptr1 == *intptr2?: YES!\n");
+		}
+		else 
+		{
+			printf("Does *intptr1 == *intptr2?: NO!\n");
+		}
+		
+		intptr1 = &i2;
+		
+		if(intptr1 == intptr2)
+		{
+			printf("Does intptr1 == intptr2?: YES!\n");
+		}
+		else 
+		{
+			printf("Does intptr1 == intptr2?: NO!\n");
+		}
+		
+		if(*intptr1 == *intptr2)
+		{
+			printf("Does *intptr1 == *intptr2?: YES!\n");
+		}
+		else 
+		{
+			printf("Does *intptr1 == *intptr2?: NO!\n");
+		}
+		
+		printf("\n");
+		
+		
+		/* (15) */
+		
+		printf("Question 15 Output:\n");
+		
+		double *pi_ptr;
+		pi_ptr = (double *)malloc (sizeof (double));
+		*pi_ptr =  3.1416;
+		
+		printf("Value located (i.e., the content of) in variable â€˜pi_ptrâ€™: %p\n", pi_ptr);
+		printf("Value obtained by dereferencing â€˜pi_ptrâ€™ â€“ i.e., the value of *pi_ptr: %f\n", *pi_ptr);
+		
+		printf("\n");
+		
+		/* (16) */
+		
+		printf("Question 16 Output:\n");
+		
+		double *pi_ptr2;
+		pi_ptr2 = pi_ptr;
+		free((void *)pi_ptr);
+		pi_ptr = (double *)malloc (sizeof (double));
+		
+		printf("Value located (i.e., the content of) in variable â€˜pi_ptrâ€™: %p\n", pi_ptr);
+		
+		if(pi_ptr == pi_ptr2){
+			
+			printf("Yes the contents are equal, pi_ptr = %p, and pi_ptr2 = %p\n", pi_ptr, pi_ptr2); 
+		}
+		else{
+			
+			printf("No the contents are not equal, pi_ptr = %p, and pi_ptr2 = %p\n", pi_ptr, pi_ptr2);
+		}
+		
+		printf("\n");
+
+		/* (17) */
+		
+		printf("Question 17 Output:\n");
+		
+		dubptr1 = intptr1;
+}
