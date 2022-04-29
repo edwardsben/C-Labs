@@ -1,0 +1,105 @@
+/* Created by: BENJAMIN EDWARDS
+   Purpose: This program multiplys two big numbers together
+*/
+
+#include <stdio.h>
+#define N 20
+
+void add(int sum[], int a[], int b[]);
+void mul(int pro[], int a[], int b[]);
+void prn_num(int a[], int b);
+int main(void)
+{
+        int a[N] = {7, 5, 9, 8, 9, 7, 5, 0, 0, 9, 9, 0, 8, 8};
+        int b[N] = {7, 7, 5, 3, 1, 2, 8, 8, 9, 6, 7, 7};
+        int pro[2*N] = {0};
+
+        printf("Integer a: ");
+        prn_num(a, N);
+        printf("Integer b: ");
+        prn_num(b, N);
+        mul(pro, a, b);
+        printf("Product: ");
+        prn_num(pro, N*2);
+        return 0;
+}
+void prn_num(int a[], int L)
+{
+        int i;
+        for (i = L - 1; i >= 0; --i) {
+                if (a[i] == 0)
+                {
+                        putchar(' ');
+                }
+                else
+                {
+                        break;
+                }
+        }
+        for (; i >= 0; --i)
+        {
+                printf("%d", a[i]);
+
+        }
+         putchar('\n');
+
+}
+void add(int sum[], int a[], int b[])
+{
+        int i;
+        int temp;
+        int carry = 0;
+        for(i=0; i < (2*N)-1; i++)
+        {
+                temp = a[i] + b[i] + carry;
+                if(temp >= 10)
+                {
+			sum[i] = temp % 10;
+                        carry = temp / 10;
+                }
+                else
+                {
+                        
+                        sum[i] = temp;
+                        /*set new carry*/
+                        carry = 0;
+                }
+        }
+
+}
+void mul(int pro[], int a[], int b[])
+{	
+	int proTemp[2*N] = {0};
+	int counter = 0;
+	int i, j; 
+	int temp = 0;
+	int carry = 0;
+	int x = 0;
+
+	for(i = 0; i < N; i++)
+	{
+		for(j = i; j < N+i; j++)
+		{	
+			temp = (b[i] * a[x]) + carry;
+		
+			if(temp >= 10)
+			{	
+				proTemp[j] = temp % 10;
+				carry = temp / 10;
+			}
+			else
+			{
+				proTemp[j] = temp;
+				carry = 0;
+			}
+			x++;
+				
+		}
+
+		add(pro, pro, proTemp);
+		proTemp[i] = 0;
+		carry = 0;
+		x = 0;
+	}	
+
+}
