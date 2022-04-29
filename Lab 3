@@ -1,7 +1,7 @@
 /*
 Created by Benjamin Edwards
 Date: 10/07/21
-Description: program that answers several questions from a word doc
+Description: program that answers several questions from a word doc (download lab 3 exercises to see the questions)
 */
 
 #include <stdio.h>
