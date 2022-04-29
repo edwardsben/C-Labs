@@ -1,0 +1,117 @@
+/*
+Created by Benjamin Edwards
+Date: 9/23/21
+Description: Creates a program that converts an integer into another base and display the results
+*/
+
+#include <stdio.h>
+
+void change_base();
+
+int main(void)
+{
+
+	change_base();
+
+}
+
+void change_base(void)
+{
+
+	char base_in;
+	char base_out;
+	int switch1;	/*whatever base the starting num1 is, stores a 0(for decimal), 1(hex), 2(octal)*/
+	char continue1 = 'Y';	
+	int num1;	
+
+
+	
+	
+	while(continue1 == 'Y')
+	{
+		printf("%d", switch1);
+
+		printf("Base of input integer: Enter d for decimal, h for hexadecimal or o for octal:\n");
+		scanf(" %c", &base_in);
+
+		/*base in case*/		
+
+		if(base_in == 'd')
+		{
+			printf("Enter the number:\n");
+			scanf("%d", &num1); 
+			switch1 = 0;
+		}
+		else if(base_in == 'h')
+		{
+			printf("Enter the number:\n");
+			scanf("%x", &num1);
+			switch1 = 1;
+		}	
+		else	/* when char is a octal base */
+		{
+			printf("Enter the number:\n");
+			scanf("%o", &num1);
+			switch1 = 2;
+		}
+
+		
+		/*----------------------------------------------------*/
+
+		printf("Enter the base of the output(d,h or o):\n");
+		scanf(" %c", &base_out);
+		
+		/* base out case*/
+
+		if(base_out == 'd') 
+		{
+			if(switch1 == 0)
+			{
+				printf("The integer %d in decimal is %d in decimal\n", num1, num1);
+			}
+			else if(switch1 == 1)
+			{
+				printf("The integer %x in hexadecimal is %d in decimal\n", num1, num1);
+			} 
+			else     /* switch is equal to 2(meaning octal)*/
+			{
+				printf("The integer %o in octal is %d in decimal\n", num1, num1);
+			}
+		}
+		else if(base_out == 'h')
+		{
+			if(switch1 == 0)
+			{
+				printf("The integer %d in decimal is %x in hexadecimal\n", num1, num1);
+			}
+			else if(switch1 == 1)
+			{
+				printf("The integer %x in hexdecimal is %x in hexadecimal\n", num1, num1);
+			} 
+			else     /* switch is equal to 2(meaning octal)*/
+			{
+				printf("The integer %o in octal is %x in hexadecimal\n", num1, num1);
+			}
+		}
+		else
+		{
+			if(switch1 == 0)
+			{
+				printf("The integer %d in decimal is %o in octal\n", num1, num1);
+			}
+			else if(switch1 == 1)
+			{
+				printf("The integer %x in hexadecimal is %o in octal\n", num1, num1);
+			} 
+			else     /* switch is equal to 2(meaning octal)*/
+			{
+				printf("The integer %o in octal is %o in octal\n", num1, num1);
+			}
+		}
+		printf("Do you wish to do another?(Y or N):\n");
+		scanf(" %c", &continue1);
+	}
+
+
+
+}
