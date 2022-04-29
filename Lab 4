@@ -1,0 +1,91 @@
+/*
+Created by Benjamin Edwards
+Date: 10/07/21
+Description: This lab is concerned with the manipulation of character strings.
+*/
+
+#include <stdio.h>
+/*
+int getString(int);
+void putString(void);
+*/
+int main(void)
+{
+        int n = 999;
+        char userString [999];
+	
+	printf("Write a string that under 998 characters. When you want to finish press z\n");
+
+        int i = 0; 
+	int x = 0; 
+	/* counters */      
+	int whiteSpace = 0;
+	int digits = 0;
+	int lCase = 0;
+	int uCase = 0;
+
+	/* Getting userInput until they press z*/
+        while((i <= n-1) && ((userString[i] = getchar()) != 'z')) 
+	{	
+		/* Checks for white space, digits, lower and upper case(ASCII values are used for ranges */
+		if(userString[i] == ' ' || userString[i] == '\t' || userString[i] == '\n')
+                {
+                        whiteSpace++;
+                }
+		else if(userString[i] >= 48 && userString[i] <= 57)
+		{
+			digits++;
+		}
+		else if(userString[i] >= 97 && userString[i] <= 122)
+		{
+			lCase++;
+		}
+		else if(userString[i] >= 65 && userString[i] <= 90)
+		{
+			uCase++;
+		}
+		i++;
+	}
+		/* if the string is too big then it replaces the last char with \0*/
+		if(i == n)
+                {
+	                userString[i-1] = '\0';
+                        printf("-1");
+                }
+                else /* replaces 'z' with \0 */
+                {
+                        userString[i] = '\0';
+                        /*debug: printf("0"); */
+          	}
+	
+	/* converts lowercase to upper and upper to lower using ASCII Values */
+        for(int j = 0; userString[j]!='\0'; j++){
+		if(userString[j] >= 97 && userString[j] <= 122)
+		{
+			userString[j] = userString[j] - 32;
+		}
+		else if(userString[j] >= 65 && userString[j] <= 90)
+		{
+			userString[j] = userString[j] + 32;
+		}
+	}
+	printf("\n");
+
+	/* Prints the string */
+        while((x <= i) && ( putchar(userString[x]) != '\0'))
+                {
+                x++;
+
+                }
+	printf("\n");
+	printf("\n");
+
+	printf("The number of whitespace characters is: %d\n", whiteSpace);
+	printf("The number of digits is: %d\n", digits);
+	printf("The number of lowercase characters is: %d\n", lCase);
+	printf("The number of uppercase characters is: %d\n", uCase);	
+
+
+
+}
+
